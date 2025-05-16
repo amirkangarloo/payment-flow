@@ -17,6 +17,19 @@
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
-    "paths": {}
+    "paths": {
+      "@lib/common": [
+        "libs/common/src"
+      ],
+      "@lib/common/*": [
+        "libs/common/src/*"
+      ],
+      "@lib/rabbitmq": [
+        "libs/rabbitmq/src"
+      ],
+      "@lib/rabbitmq/*": [
+        "libs/rabbitmq/src/*"
+      ]
+    }
   }
 }
