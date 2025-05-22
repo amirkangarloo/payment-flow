@@ -1,3 +1,3 @@
 export class PayInstallmentReqDto {
-  installmentIds: string[];
+  installmentId: number;
 }
