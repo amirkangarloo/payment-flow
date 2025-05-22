@@ -63,6 +63,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/direct-debit/tsconfig.app.json"
       }
+    },
+    "connector": {
+      "type": "library",
+      "root": "libs/connector",
+      "entryFile": "index",
+      "sourceRoot": "libs/connector/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/connector/tsconfig.lib.json"
+      }
     }
   }
 }
