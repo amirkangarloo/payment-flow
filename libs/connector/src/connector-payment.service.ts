@@ -3,14 +3,15 @@ import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 
 @Injectable()
-export class ConnectorService {
+export class ConnectorPaymentService {
+  private BaseUrl = 'http://localhost:3002';
   constructor() {}
 
   async payInstallment(
     payload: PayInstallmentReqDto,
   ): Promise<PayInstallmentResDto> {
     const res = await axios.post<PayInstallmentResDto>(
-      'http://localhost:3002/pay-installment',
+      `${this.BaseUrl}/pay-installment`,
       payload,
     );
 
