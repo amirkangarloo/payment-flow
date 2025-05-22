@@ -12,10 +12,6 @@ import { Step } from 'apps/payment/src/saga/step/step';
 @Injectable()
 export class PayInstallmentSagaService {
   private steps: Step<PayInstallmentSagaDto, PayInstallmentSagaDto>[] = [];
-  private successfulSteps: Step<
-    PayInstallmentSagaDto,
-    PayInstallmentSagaDto
-  >[] = [];
 
   constructor(
     private readonly step1: GetInstallmentAmountStep,
@@ -28,26 +24,31 @@ export class PayInstallmentSagaService {
 
   async execute(message: PayInstallmentSagaDto): Promise<PayInstallmentResDto> {
     let payload: PayInstallmentSagaDto = { ...message };
+    const successfulSteps: Step<
+      PayInstallmentSagaDto,
+      PayInstallmentSagaDto
+    >[] = [];
 
     for (const step of this.steps) {
       try {
+        Logger.log(`payload: ${JSON.stringify(payload)}`);
         Logger.log(`Invoke step: ${step.name}`);
 
         payload = await step.invoke(payload);
 
-        this.successfulSteps.unshift(step);
+        successfulSteps.unshift(step);
       } catch (error) {
         Logger.error(`Failed step: ${step.name}`);
 
-        for (const step of this.successfulSteps) {
+        for (const step of successfulSteps) {
           console.info(`Rollback step: ${step.name} ...`);
           payload = await step.rollback(payload);
         }
 
-        throw error;
+        return { status: PayInstallmentStatusEnum.Failed };
       }
-
-      return { status: PayInstallmentStatusEnum.Success };
     }
+
+    return { status: PayInstallmentStatusEnum.Success };
   }
 }

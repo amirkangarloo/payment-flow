@@ -6,7 +6,7 @@ export class InstallmentRepo implements OnModuleInit {
   private data: InstallmentSchema[] = [];
 
   onModuleInit() {
-    for (let index = 1; index < 6; index++) {
+    for (let index = 1; index <= 10; index++) {
       this.data.push({
         id: index,
         amount: 1_000_000,
@@ -34,10 +34,7 @@ export class InstallmentRepo implements OnModuleInit {
   }
 
   rollbackGetAmountAndBlockInstallment(id: number): void {
-    const d = this.data.find(
-      (item) =>
-        item.id === id && item.isBlock === true && item.isPaid === false,
-    );
+    const d = this.data.find((item) => item.id === id && item.isPaid === false);
 
     if (!d) {
       throw new NotFoundException('Installment not found');
