@@ -7,7 +7,7 @@ export class PaymentController {
   constructor(private readonly paymentService: PaymentService) {}
 
   @Post('pay-installment')
-  payInstallment(@Body() payload: PayInstallmentReqDto) {
+  async payInstallment(@Body() payload: PayInstallmentReqDto) {
     return this.paymentService.payInstallment(payload);
   }
 }

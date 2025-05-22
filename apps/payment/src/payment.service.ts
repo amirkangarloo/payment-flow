@@ -1,18 +1,14 @@
-import {
-  PayInstallmentReqDto,
-  PayInstallmentResDto,
-  PayInstallmentStatusEnum,
-} from '@lib/common';
+import { PayInstallmentReqDto, PayInstallmentResDto } from '@lib/common';
 import { Injectable } from '@nestjs/common';
-import { PayInstallmentSaga } from 'apps/payment/src/saga/pay-installment.saga';
+import { PayInstallmentSagaService } from 'apps/payment/src/saga/pay-installment.saga.service';
 
 @Injectable()
 export class PaymentService {
-  constructor(private readonly payInstallmentSaga: PayInstallmentSaga) {}
+  constructor(private readonly saga: PayInstallmentSagaService) {}
 
-  payInstallment(payload: PayInstallmentReqDto): PayInstallmentResDto {
-    console.log('payload: ', JSON.stringify(payload));
-
-    return { status: PayInstallmentStatusEnum.Success };
+  async payInstallment(
+    payload: PayInstallmentReqDto,
+  ): Promise<PayInstallmentResDto> {
+    return this.saga.execute(payload);
   }
 }
