@@ -1,5 +1,5 @@
 import { Global, Module } from '@nestjs/common';
-import { TransactionRepo } from 'apps/direct-debit/src/repository/transaction.service';
+import { TransactionRepo } from 'apps/direct-debit/src/repository/transaction.repo';
 
 @Global()
 @Module({

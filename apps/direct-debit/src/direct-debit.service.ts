@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import {
   TransactionRepo,
   TransactionSchema,
-} from 'apps/direct-debit/src/repository/transaction.service';
+} from 'apps/direct-debit/src/repository/transaction.repo';
 
 @Injectable()
 export class DirectDebitService {
