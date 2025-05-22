@@ -24,11 +24,11 @@
       "@lib/common/*": [
         "libs/common/src/*"
       ],
-      "@lib/rabbitmq": [
-        "libs/rabbitmq/src"
+      "@lib/connector": [
+        "libs/connector/src"
       ],
-      "@lib/rabbitmq/*": [
-        "libs/rabbitmq/src/*"
+      "@lib/connector/*": [
+        "libs/connector/src/*"
       ]
     }
   }

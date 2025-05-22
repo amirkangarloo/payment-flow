@@ -1,8 +1,11 @@
+import { PayInstallmentReqDto, PayInstallmentResDto } from '@lib/common';
 import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class PaymentService {
-  getHello(): string {
-    return 'Hello World!';
+  payInstallment(payload: PayInstallmentReqDto): PayInstallmentResDto {
+    console.log('payload: ', JSON.stringify(payload));
+
+    return { status: 'ok' };
   }
 }

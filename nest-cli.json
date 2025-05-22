@@ -46,13 +46,22 @@
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     },
-    "rabbitmq": {
-      "type": "library",
-      "root": "libs/rabbitmq",
-      "entryFile": "index",
-      "sourceRoot": "libs/rabbitmq/src",
+    "direct-debit": {
+      "type": "application",
+      "root": "apps/direct-debit",
+      "entryFile": "main",
+      "sourceRoot": "apps/direct-debit/src",
       "compilerOptions": {
-        "tsConfigPath": "libs/rabbitmq/tsconfig.lib.json"
+        "tsConfigPath": "apps/direct-debit/tsconfig.app.json"
+      }
+    },
+    "connector": {
+      "type": "library",
+      "root": "libs/connector",
+      "entryFile": "index",
+      "sourceRoot": "libs/connector/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/connector/tsconfig.lib.json"
       }
     }
   }
