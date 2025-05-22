@@ -1,10 +1,11 @@
 import { Module } from '@nestjs/common';
 import { PaymentController } from './payment.controller';
 import { PaymentService } from './payment.service';
-import { RepositoryModule } from 'apps/direct-debit/src/repository/repository.module';
+import { SagaModule } from 'apps/payment/src/saga/saga.module';
+import { RepositoryModule } from 'apps/payment/src/repository/repository.module';
 
 @Module({
-  imports: [RepositoryModule],
+  imports: [RepositoryModule, SagaModule],
   controllers: [PaymentController],
   providers: [PaymentService],
 })
