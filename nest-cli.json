@@ -46,15 +46,6 @@
         "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     },
-    "rabbitmq": {
-      "type": "library",
-      "root": "libs/rabbitmq",
-      "entryFile": "index",
-      "sourceRoot": "libs/rabbitmq/src",
-      "compilerOptions": {
-        "tsConfigPath": "libs/rabbitmq/tsconfig.lib.json"
-      }
-    },
     "direct-debit": {
       "type": "application",
       "root": "apps/direct-debit",

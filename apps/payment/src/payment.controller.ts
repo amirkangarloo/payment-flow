@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { PaymentService } from './payment.service';
-import { PayInstallmentReqDto } from 'libs/connector/dto';
+import { PayInstallmentReqDto } from '@lib/common';
 
 @Controller()
 export class PaymentController {

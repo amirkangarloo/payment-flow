@@ -1,6 +1,6 @@
+import { PayInstallmentReqDto, PayInstallmentResDto } from '@lib/common';
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
-import { PayInstallmentReqDto, PayInstallmentResDto } from 'libs/connector/dto';
 
 @Injectable()
 export class ConnectorService {

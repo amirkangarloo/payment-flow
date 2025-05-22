@@ -1,6 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { AppService } from './app.service';
-import { PayInstallmentReqDto } from 'libs/connector/dto';
+import { PayInstallmentReqDto } from '@lib/common';
 
 @Controller()
 export class AppController {
